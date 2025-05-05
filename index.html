@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивная карта</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .info {
+            display: none;
+            margin-top: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<h1>Познакомься с животными!</h1>
+<img src="https://i.ytimg.com/vi/9xvpjYBQD2c/hqdefault.jpg" usemap="#animalmap" alt="Карта животных">
+<map name="animalmap">
+    <area shape="rect" coords="10, 44, 240, 350" href="#" alt="Слон"
+    onmouseover="showInfo(event,' Слон: Большое травоядное животное.' )"
+    onmouseout="hideInfo()">
+    <area shape="rect" coords="240,44,470,350" href="#" alt="Тигр"
+    onmouseover="showInfo(event, 'Тигр:Большой хищник с полосами')"
+
+    onmouseout="hideInfo()">
+</map>
+    <div id="info" class="info"></div>
+    <script>
+        function showInfo(event, text) {
+            const infoBox = document.getElementById('info');
+            infoBox.innerText = text;
+            infoBox.style.display = 'block';
+            infoBox.style.left = event.pageX + 'px';
+            infoBox.style.top = event.pageY + 'px';
+        }
+
+        function hideInfo() {
+            const infoBox = document.getElementById('info');
+            infoBox.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
